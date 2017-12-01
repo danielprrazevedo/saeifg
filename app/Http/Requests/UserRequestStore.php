@@ -13,7 +13,7 @@ class UserRequestStore extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return (\Auth::user()->user_type == 1);
     }
 
     /**
@@ -23,8 +23,22 @@ class UserRequestStore extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        $rules = [
+
         ];
+        return $rules;
+    }
+
+    /**
+     * Get the validation messages that apply to the request.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        $messages = [
+
+        ];
+        return $messages;
     }
 }
