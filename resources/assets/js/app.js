@@ -20,3 +20,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+window.bootbox = require('bootbox');
+require('datatables.net-bs');
+require('datatables.net-responsive-bs');
+require('moment');
+require('eonasdan-bootstrap-datetimepicker');
+require('select2');

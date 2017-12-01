@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -35,5 +39,29 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function loginPage()
+    {
+        return view('login.login');
+    }
+
+    public function attempt(LoginRequest $request)
+    {
+        if (Auth::attempt(['registry' => $request->registry, 'password' => $request->password])) {
+            return "login efetuado com sucesso";
+        } else {
+            return "falha no login";
+        }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+    }
+
+    public function username()
+    {
+        return 'registry';
     }
 }

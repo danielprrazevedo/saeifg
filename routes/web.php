@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::any('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::get('/login', 'Auth\LoginController@loginPage')->name('login');
+Route::Post('/login', 'Auth\LoginController@attempt')->name('login');

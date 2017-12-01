@@ -7,3 +7,14 @@
 
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+//datatables
+@import "~datatables.net-bs/css/dataTables.bootstrap";
+@import "~datatables.net-responsive-bs/css/responsive.bootstrap";
+
+//datetimepicker
+@import "~eonasdan-bootstrap-datetimepicker/src/sass/bootstrap-datetimepicker-build";
+
+//select2
+@import "~select2/dist/css/select2";
+@import "~select2-bootstrap-theme/dist/select2-bootstrap";

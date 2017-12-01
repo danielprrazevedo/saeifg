@@ -15,8 +15,29 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'email',
+        'password',
+        'registry',
+        'phone',
+        'user_type',
     ];
+
+    /**
+     * Aqui é definido o retorno do tipo, tornando
+     * desnecessário o uso de uma tabela extra no banco
+     */
+
+    const USER_TYPE = [
+        1 => 'Coordenador',
+        2 => 'Aluno',
+        3 => 'Professor'
+    ];
+
+    public function type()
+    {
+        return $this::USER_TYPE[$this->user_type];
+    }
 
     /**
      * The attributes that should be hidden for arrays.
