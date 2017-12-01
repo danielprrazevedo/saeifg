@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequestStore;
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -32,9 +34,11 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequestStore $request)
     {
-        //
+        $array_request = $request->all();
+        $array_request = array_merge($array_request, ['password' => bcrypt(123456), 'campus_id' => '1']);
+        $user = User::create($array_request);
     }
 
     /**
