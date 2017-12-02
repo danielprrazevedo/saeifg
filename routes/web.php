@@ -24,5 +24,5 @@ Route::get('/menu', 'MenuController@index')->name('menu');
 Route::group(['middleware' => 'auth', 'prefix'=>'admin'], function(){
     Route::resource('user', 'UserController');
     Route::resource('company', 'CompanyController');
-    Route::resource('contracts', 'ContractController');
+    Route::resource('contract', 'ContractController');
 });

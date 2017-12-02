@@ -10,6 +10,7 @@ use App\Http\Requests\UserRequestUpdate;
 use App\Student;
 use App\Teacher;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -60,7 +61,7 @@ class UserController extends Controller
         if ($array_request['user_type'] == 1) {
             Coordinator::create($array_request);
         } elseif ($array_request['user_type'] == 2) {
-            $array_request['dt_nasc'] = date("Y-m-d", strtotime($array_request['dt_nasc']) );
+            $array_request['dt_nasc'] = Carbon::createFromFormat('d/m/Y', $array_request['dt_nasc']);
             Student::create($array_request);
         } elseif ($array_request['user_type'] == 3) {
             Teacher::create($array_request);

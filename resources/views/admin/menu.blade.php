@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <div class="col-xs-4 col-sm-4 text-center">
-                    <a class="menu">
+                    <a class="menu" href="{{route('contract.index')}}">
                         <span class="glyphicon glyphicon-list"></span><br>
                         Contratos
                     </a>
