@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row form-group">
-        <label class="col-sm-9{{ $errors->has('name') ? ' has-error' : '' }}">
+        <label class="col-xs-12 col-sm-9{{ $errors->has('name') ? ' has-error' : '' }}">
             Nome:
             <input class="form-control" name="name" type="text" value="{{$errors->any() ? old('name') : $user->name}}" required>
             @if ($errors->has('name'))
@@ -9,7 +9,7 @@
                 </span>
             @endif
         </label>
-        <label class="col-sm-3{{ $errors->has('registry') ? ' has-error' : '' }}">
+        <label class="col-xs-12 col-sm-3{{ $errors->has('registry') ? ' has-error' : '' }}">
             Matricula:
             <input class="form-control" name="registry" type="text" value="{{$errors->any() ? old('registry') : $user->registry}}" required>
             @if ($errors->has('registry'))
@@ -20,7 +20,7 @@
         </label>
     </div>
     <div class="row form-group">
-        <label class="col-sm-8{{ $errors->has('email') ? ' has-error' : '' }}">
+        <label class="col-xs-12 col-sm-8{{ $errors->has('email') ? ' has-error' : '' }}">
             E-Mail:
             <input class="form-control" name="email" type="email" value="{{$errors->any() ? old('email') : $user->email}}" required>
             @if ($errors->has('name'))
@@ -29,7 +29,7 @@
                 </span>
             @endif
         </label>
-        <label class="col-sm-4{{ $errors->has('phone') ? ' has-error' : '' }}">
+        <label class="col-xs-12 col-sm-4{{ $errors->has('phone') ? ' has-error' : '' }}">
             Telefone:
             <input class="form-control phone" name="phone" type="text" value="{{$errors->any() ? old('phone') : $user->phone}}" required>
             @if ($errors->has('phone'))
@@ -40,7 +40,7 @@
         </label>
     </div>
     <div class="row form-group">
-        <label class="col-sm-4{{ $errors->has('user_type') ? ' has-error' : '' }}">
+        <label class="col-xs-12 col-sm-4{{ $errors->has('user_type') ? ' has-error' : '' }}">
             Tipo:
             <select class="form-control" name="user_type">
                 <option selected disabled >Selecione um tipo de usuário</option>
@@ -56,7 +56,7 @@
         </label>
     </div>
     <div class="row form-group professor">
-        <label class="col-sm-4{{ $errors->has('area_id') ? ' has-error' : '' }}">
+        <label class="col-xs-12 col-sm-4{{ $errors->has('area_id') ? ' has-error' : '' }}">
             Tipo:
             <select class="form-control" name="area_id">
                 <option selected disabled >Selecione uma área</option>
@@ -72,7 +72,7 @@
         </label>
     </div>
     <div class="row form-group aluno">
-        <label class="col-sm-3{{ $errors->has('cpf') ? ' has-error' : '' }}">
+        <label class="col-xs-12 col-sm-3{{ $errors->has('cpf') ? ' has-error' : '' }}">
             CPF:
             <input name="cpf" class="cpf form-control" value="{{$errors->any() ? old('cpf') : $user->student()->cpf}}">
             @if ($errors->has('cpf'))
@@ -81,7 +81,7 @@
                 </span>
             @endif
         </label>
-        <label class="col-sm-3{{ $errors->has('rg') ? ' has-error' : '' }}">
+        <label class="col-xs-12 col-sm-3{{ $errors->has('rg') ? ' has-error' : '' }}">
             RG:
             <input name="rg" class="rg form-control" value="{{$errors->any() ? old('rg') : $user->student()->rg}}">
             @if ($errors->has('rg'))
@@ -90,16 +90,16 @@
                 </span>
             @endif
         </label>
-        <label class="col-sm-3{{ $errors->has('dt_nasc') ? ' has-error' : '' }}">
+        <label class="col-xs-12 col-sm-3{{ $errors->has('dt_nasc') ? ' has-error' : '' }}">
             Data de Nascimento:
-            <input name="dt_nasc" class="calendario form-control" value="{{$errors->any() ? old('dt_nasc') : date("d/m/Y", strtotime($user->student()->dt_nasc))}}">
+            <input name="dt_nasc" class="calendario form-control" value="{{$errors->any() ? old('dt_nasc') : (!!$user->student()->dt_nasc ? date("d/m/Y", strtotime($user->student()->dt_nasc)) : '')}}">
             @if ($errors->has('dt_nasc'))
                 <span class="help-block">
                     <strong>{{ $errors->first('dt_nasc') }}</strong>
                 </span>
             @endif
         </label>
-        <label class="col-sm-3{{ $errors->has('course_id') ? ' has-error' : '' }}">
+        <label class="col-xs-12 col-sm-3{{ $errors->has('course_id') ? ' has-error' : '' }}">
             Curso:
             <select class="form-control" name="course_id">
                 <option selected disabled >Selecione uma área</option>
@@ -116,7 +116,7 @@
     </div>
 
     <div class="row form-group aluno">
-        <label class="col-sm-12{{ $errors->has('address') ? ' has-error' : '' }}">
+        <label class="col-xs-12 col-sm-12{{ $errors->has('address') ? ' has-error' : '' }}">
             Endereço:
             <textarea name="address" rows="3" class="form-control">{{$errors->any() ? old('address') : $user->student()->address}}</textarea>
         </label>

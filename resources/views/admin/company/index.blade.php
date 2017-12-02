@@ -2,9 +2,9 @@
 @section('content')
     <div class="container">
         <div class="col-xs-12 col-sm-12 text-center">
-            <a href="{{route('user.create')}}" class="btn btn-success">
+            <a href="{{route('company.create')}}" class="btn btn-success">
                 <i class="glyphicon glyphicon-plus-sign"></i>
-                Novo Usuário
+                Nova Empresa
             </a>
         </div>
         <div class="col-xs-12 col-sm-12">
@@ -13,22 +13,24 @@
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
-                    <th>Email</th>
+                    <th>Razão Social</th>
+                    <th>E-Mail</th>
                     <th>Telefone</th>
-                    <th>Tipo</th>
+                    <th>Area</th>
                     <th class="text-center"> - </th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($users as $user)
+                @foreach($companies as $company)
                     <tr>
-                        <td>{{$user->id}}</td>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</td>
-                        <td>{{$user->phone}}</td>
-                        <td>{{$user->type()}}</td>
+                        <td>{{$company->id}}</td>
+                        <td>{{$company->fantasy_name}}</td>
+                        <td>{{$company->social_reason}}</td>
+                        <td>{{$company->phone}}</td>
+                        <td>{{$company->email}}</td>
+                        <td>{{$company->area->name}}</td>
                         <td class="text-center">
-                            <a class="btn btn-warning" data-toggle="tooltip" title="Editar" href="{{route("user.edit", $user->id)}}">
+                            <a class="btn btn-warning" data-toggle="tooltip" title="Editar" href="{{route("company.edit", $company->id)}}">
                                 <i class="glyphicon glyphicon-edit"></i>
                             </a>
                         </td>

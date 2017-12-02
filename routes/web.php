@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route("login"));
 });
 
 Route::any('/logout', 'Auth\LoginController@logout')->name('logout');
@@ -23,4 +23,6 @@ Route::get('/menu', 'MenuController@index')->name('menu');
 
 Route::group(['middleware' => 'auth', 'prefix'=>'admin'], function(){
     Route::resource('user', 'UserController');
+    Route::resource('company', 'CompanyController');
+    Route::resource('contracts', 'ContractController');
 });

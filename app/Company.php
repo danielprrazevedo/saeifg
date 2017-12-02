@@ -14,6 +14,12 @@ class Company extends Model
         'state_registration',
         'email',
         'phone',
-        'supervisor_name'
+        'supervisor_name',
+        'area_id'
     ];
+
+    public function area()
+    {
+        return $this->belongsTo('App\Area', 'area_id', 'id');
+    }
 }

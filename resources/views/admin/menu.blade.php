@@ -21,7 +21,7 @@
                     </a>
                 </div>
                 <div class="col-xs-4 col-sm-4 text-center">
-                    <a class="menu" href="">
+                    <a class="menu" href="{{route('company.index')}}">
                         <span class="glyphicon glyphicon glyphicon-book"></span><br>
                         Empresas
                     </a>

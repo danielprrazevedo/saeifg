@@ -18,7 +18,7 @@
             </a>
             <button type="submit" class="btn btn-success">
                 <i class="glyphicon glyphicon-check"></i>
-                Cadastrar
+                Atualizar
             </button>
         </div>
 
