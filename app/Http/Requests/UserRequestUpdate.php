@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\User;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequestStore extends FormRequest
+class UserRequestUpdate extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,14 +28,13 @@ class UserRequestStore extends FormRequest
         $rules = [
             'name' => 'required',
             'email' => 'required',
-            'registry' => 'required|unique:users,registry',
             'phone' => 'required',
             'user_type' => "required|in:$user_type",
         ];
 
         if ($this->user_type == 2) {
             $rules = array_merge($rules, [
-                'cpf' => 'required|unique:students,cpf',
+                'cpf' => 'required',
                 'rg' => 'required',
                 'dt_nasc' => 'required|date',
                 'address' => 'required|min:10',
@@ -45,18 +44,5 @@ class UserRequestStore extends FormRequest
             $rules = array_merge($rules, ['area_id' => 'required|exists:areas,id']);
         }
         return $rules;
-    }
-
-    /**
-     * Get the validation messages that apply to the request.
-     *
-     * @return array
-     */
-    public function messages()
-    {
-        $messages = [
-
-        ];
-        return $messages;
     }
 }

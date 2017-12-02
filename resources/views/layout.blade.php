@@ -17,7 +17,9 @@
 <body>
 <header class="page-header">
     <img src="{{asset('img/LogoEst.png')}}" class="logo-sys">
-    <img src="{{asset('img/LogoIfg.png')}}" class="logo-ifg">
+    <a href="http://ifg.edu.br/" target="_blank">
+        <img src="{{asset('img/LogoIfg.png')}}" class="logo-ifg">
+    </a>
 </header>
 <main>
     <div id="app">
@@ -28,11 +30,10 @@
 <footer class="page-footer text-center">
     <span class="valign-center">&copy; IFG - Uruaçu</span>
     @if(Auth::check())
-        <button onclick="$('#form-logout').submit();" type="submit" class="btn btn-primary pull-right" style="margin: 0 5px 0 0">
+        <a href="{{route('logout')}}" class="btn btn-primary pull-right" style="margin: 0 5px 0 0">
             <span class="glyphicon glyphicon-log-out"></span>
             Sair
-        </button>
-        <form action="{{ asset('logout') }}" style="display:none" method="post" id="form-logout">{{csrf_field()}}</form>
+        </a>
     @endif
 </footer>
 <script src="{{asset('js/app.js')}}"></script>

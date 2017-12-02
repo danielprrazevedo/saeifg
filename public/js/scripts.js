@@ -12,9 +12,9 @@ jQuery(function(){
             $(element).removeClass(errorClass)
         }
     });
-    /*jQuery.datetimepicker.setDefaults({
-        locale: ""
-    });*/
+
+
+
     $('.phone').mask('(00) 0000Z-0000', {
         translation: {
             'Z': {
@@ -24,10 +24,11 @@ jQuery(function(){
         }
     });
     $('.cpf').mask('000.000.000-00')
-    $('.calendario').datetimepicker({
-        format: "DD/MM/YYYY"
-    });
 
+    $('.calendario').datetimepicker({
+        locale: 'pt-br',
+        format: 'DD/MM/YYYY'
+    });
     $('[data-toggle="tooltip"]').tooltip();
 
 });

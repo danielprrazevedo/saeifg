@@ -29,7 +29,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/menu';
 
     /**
      * Create a new controller instance.
@@ -49,7 +49,8 @@ class LoginController extends Controller
     public function attempt(LoginRequest $request)
     {
         if (Auth::attempt(['registry' => $request->registry, 'password' => $request->password])) {
-            return "login efetuado com sucesso";
+            $route = null;
+            return redirect(route('menu'));
         } else {
             return "falha no login";
         }
@@ -58,6 +59,7 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         Auth::logout();
+        return redirect(route('login'));
     }
 
     public function username()

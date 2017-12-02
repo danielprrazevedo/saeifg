@@ -18,4 +18,9 @@ Route::get('/', function () {
 Route::any('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/login', 'Auth\LoginController@loginPage')->name('login');
-Route::Post('/login', 'Auth\LoginController@attempt')->name('login');
+Route::post('/login', 'Auth\LoginController@attempt');
+Route::get('/menu', 'MenuController@index')->name('menu');
+
+Route::group(['middleware' => 'auth', 'prefix'=>'admin'], function(){
+    Route::resource('user', 'UserController');
+});

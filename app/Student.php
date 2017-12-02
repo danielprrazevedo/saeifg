@@ -14,6 +14,4 @@ class Student extends Model
         'user_id',
         'course_id',
     ];
-
-    protected $dateFormat = 'Y-m-d';
 }

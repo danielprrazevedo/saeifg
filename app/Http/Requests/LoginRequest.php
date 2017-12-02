@@ -13,7 +13,7 @@ class LoginRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class LoginRequest extends FormRequest
     {
 
         $rules = [
-            'registry' => 'required',
+            'registry' => 'required|exists:users,registry',
             'password' => 'required'
         ];
         return $rules;
@@ -34,8 +34,9 @@ class LoginRequest extends FormRequest
     public function messages()
     {
         $messages = [
-            'registry.required' => 'A matricula é um campo obrigatório',
-            'password.required' => 'A senha é um campo obrigatório'
+            'registry.required' => 'A matricula é um campo obrigatório.',
+            'registry.exists' => 'A matricula inválida.',
+            'password.required' => 'A senha é um campo obrigatório.'
         ];
         return $messages;
     }

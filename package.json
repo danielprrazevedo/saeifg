@@ -23,6 +23,8 @@
         "datatables.net-bs": "^1.10.16",
         "datatables.net-responsive-bs": "^2.2.0",
         "eonasdan-bootstrap-datetimepicker": "^4.17.47",
+        "jquery-mask-plugin": "^1.14.12",
+        "jquery-validation": "^1.17.0",
         "moment": "^2.19.2",
         "select2": "^4.0.6-rc.1",
         "select2-bootstrap-theme": "0.1.0-beta.10"

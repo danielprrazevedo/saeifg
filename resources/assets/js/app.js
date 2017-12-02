@@ -21,8 +21,10 @@ const app = new Vue({
     el: '#app'
 });
 window.bootbox = require('bootbox');
+require('jquery-validation');
 require('datatables.net-bs');
 require('datatables.net-responsive-bs');
 require('moment');
 require('eonasdan-bootstrap-datetimepicker');
+require('jquery-mask-plugin');
 require('select2');

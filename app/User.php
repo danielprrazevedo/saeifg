@@ -34,9 +34,45 @@ class User extends Authenticatable
         3 => 'Professor'
     ];
 
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @return string
+     */
     public function type()
     {
         return $this::USER_TYPE[$this->user_type];
+    }
+
+    public function coordinator()
+    {
+        if ($this->user_type == 1)
+            $coordinator = Coordinator::where('user_id', '=', $this->id)->get()->last();
+        else
+            $coordinator = new Coordinator();
+
+        return $coordinator;
+    }
+
+    public function student()
+    {
+        if ($this->user_type == 2)
+            $student = Student::where('user_id', '=', $this->id)->get()->last();
+        else
+            $student = new Student();
+
+        return $student;
+    }
+
+    public function teacher()
+    {
+        if ($this->user_type == 3)
+            $teacher = Teacher::where('user_id', '=', $this->id)->get()->last();
+        else
+            $teacher = new Teacher();
+
+        return $teacher;
     }
 
     /**
