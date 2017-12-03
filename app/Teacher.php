@@ -11,4 +11,9 @@ class Teacher extends Model
         'campus_id',
         'area_id',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('\App\User');
+    }
 }

@@ -10,4 +10,9 @@ class Coordinator extends Model
         'user_id',
         'campus_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('\App\User');
+    }
 }

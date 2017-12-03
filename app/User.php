@@ -47,8 +47,9 @@ class User extends Authenticatable
 
     public function coordinator()
     {
+        //Coordinator::where('user_id', '=', $this->id)->get()->last()
         if ($this->user_type == 1)
-            $coordinator = Coordinator::where('user_id', '=', $this->id)->get()->last();
+            $coordinator = $this->hasMany('\App\Coordinator')->get()->last();
         else
             $coordinator = new Coordinator();
 
@@ -58,7 +59,7 @@ class User extends Authenticatable
     public function student()
     {
         if ($this->user_type == 2)
-            $student = Student::where('user_id', '=', $this->id)->get()->last();
+            $student = $this->hasMany('\App\Student')->get()->last();
         else
             $student = new Student();
 
@@ -68,7 +69,7 @@ class User extends Authenticatable
     public function teacher()
     {
         if ($this->user_type == 3)
-            $teacher = Teacher::where('user_id', '=', $this->id)->get()->last();
+            $teacher = $this->hasMany('\App\Teacher')->get()->last();
         else
             $teacher = new Teacher();
 

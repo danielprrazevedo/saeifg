@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use App\Contract;
-use App\Http\Requests\ContractRequestStore;
+use App\Http\Requests\ContractRequest;
+use App\Student;
+use App\Teacher;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ContractController extends Controller
@@ -27,18 +31,30 @@ class ContractController extends Controller
     public function create()
     {
         $contract = new Contract();
-        return view('admin.contract.create', compact('contract'));
+        $students = Student::all();
+        $teachers = Teacher::all();
+        $companies = Company::all();
+        return view('admin.contract.create')
+            ->with('contract', $contract)
+            ->with('students', $students)
+            ->with('teachers', $teachers)
+            ->with('companies', $companies);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param ContractRequestStore $request
+     * @param ContractRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ContractRequestStore $request)
+    public function store(ContractRequest $request)
     {
-        return response('');
+        $contract = $request->all();
+        $contract['dt_prev_inic'] = Carbon::createFromFormat('d/m/Y', $contract['dt_prev_inic']);
+        $contract['dt_prev_fim'] = Carbon::createFromFormat('d/m/Y', $contract['dt_prev_fim']);
+        $contract = array_merge($contract, ['dt_cad' => Carbon::now()]);
+        Contract::create($contract);
+        return redirect(route('contract.index'));
     }
 
     /**
@@ -60,7 +76,15 @@ class ContractController extends Controller
      */
     public function edit($id)
     {
-        //
+        $contract = Contract::findOrFail($id);
+        $students = Student::all();
+        $teachers = Teacher::all();
+        $companies = Company::all();
+        return view('admin.contract.edit')
+            ->with('contract', $contract)
+            ->with('students', $students)
+            ->with('teachers', $teachers)
+            ->with('companies', $companies);
     }
 
     /**
@@ -70,9 +94,14 @@ class ContractController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ContractRequest $request, $id)
     {
-        //
+        $contract = $request->all();
+        $contract['dt_prev_inic'] = Carbon::createFromFormat('d/m/Y', $contract['dt_prev_inic']);
+        $contract['dt_prev_fim'] = Carbon::createFromFormat('d/m/Y', $contract['dt_prev_fim']);
+        $contract = array_merge($contract, ['dt_cad' => Carbon::now()]);
+        Contract::findOrFail($id)->update($contract);
+        return redirect(route('contract.index'));
     }
 
     /**

@@ -14,12 +14,15 @@
 Route::get('/', function () {
     return redirect(route("login"));
 });
+Route::get('/home', function () {
+    return redirect(route("menu"));
+});
 
 Route::any('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/login', 'Auth\LoginController@loginPage')->name('login');
 Route::post('/login', 'Auth\LoginController@attempt');
-Route::get('/menu', 'MenuController@index')->name('menu');
+Route::get('/menu', 'MenuController@index')->name('menu')->middleware('auth');
 
 Route::group(['middleware' => 'auth', 'prefix'=>'admin'], function(){
     Route::resource('user', 'UserController');

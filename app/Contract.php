@@ -2,10 +2,12 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Contract extends Model
 {
+
     protected $fillable = [
         'dt_cad',
         'dt_term',
@@ -14,7 +16,8 @@ class Contract extends Model
         'carga_horaria',
         'observacao',
         'student_id',
-        'company_id'
+        'company_id',
+        'teacher_id'
     ];
 
     public function company()
@@ -30,5 +33,19 @@ class Contract extends Model
     public function teacher()
     {
         return $this->belongsTo('\App\Teacher');
+    }
+
+    public function prev_inic()
+    {
+        $date = Carbon::createFromFormat('Y-m-d', $this->dt_prev_inic);
+
+        return $date->format('d/m/Y');
+    }
+
+    public function prev_fim()
+    {
+        $date = Carbon::createFromFormat('Y-m-d', $this->dt_prev_fim);
+
+        return $date->format('d/m/Y');
     }
 }

@@ -28,3 +28,4 @@ require('moment');
 require('eonasdan-bootstrap-datetimepicker');
 require('jquery-mask-plugin');
 require('select2');
+require('select2/dist/js/i18n/pt-BR');

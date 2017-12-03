@@ -4,7 +4,7 @@
         <div class="col-xs-12 col-sm-12 text-center">
             <a href="{{route('contract.create')}}" class="btn btn-success">
                 <i class="glyphicon glyphicon-plus-sign"></i>
-                Nova Empresa
+                Novo Contrato
             </a>
         </div>
         <div class="col-xs-12 col-sm-12">
@@ -24,10 +24,10 @@
                 @foreach($contracts as $contract)
                     <tr>
                         <td>{{$contract->id}}</td>
-                        <td>{{$contract->student->name}}</td>
+                        <td>{{$contract->student->user->name}}</td>
                         <td>{{$contract->company->fantasy_name}}</td>
-                        <td>{{$contract->teacher->name}}</td>
-                        <td>{{$contract->dt_prev_inic}}</td>
+                        <td>{{$contract->teacher->user->name}}</td>
+                        <td>{{$contract->prev_inic()}}</td>
                         <td>{{$contract->company->area->name}}</td>
                         <td class="text-center">
                             <a class="btn btn-warning" data-toggle="tooltip" title="Editar" href="{{route("contract.edit", $contract->id)}}">
