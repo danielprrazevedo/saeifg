@@ -63,4 +63,6 @@ jQuery(function(){
         language: 'pt-BR',
         width: '100%'
     });
+
+    jQuery('#table').DataTable();
 });

@@ -45,12 +45,3 @@
         </a>
     </div>
 @endsection
-@section('scripts')
-    <script type="text/javascript">
-        $(function(){
-            $('#table').DataTable({
-                responsive: true
-            });
-        });
-    </script>
-@endsection
