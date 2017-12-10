@@ -29,7 +29,7 @@
             </div>
             <div class="col-xs-12 col-sm-6">
                 <div class="col-xs-4 col-sm-4 text-center">
-                    <a class="menu">
+                    <a class="menu" href="{{ route('message.index') }}">
                         <span class="glyphicon glyphicon-inbox"></span><br>
                         Recados
                     </a>

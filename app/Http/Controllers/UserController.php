@@ -15,6 +15,15 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    private function msgAlert($msg)
+    {
+        $css = asset('css/app.css');
+        $js = asset('js/app.js');
+        $mensagem = "<link href='{$css}' rel='stylesheet'>";
+        $mensagem .= "<script src='{$js}'>$(function(){bootbox.alert('{$msg}');});</script>";
+
+        return $mensagem;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -66,6 +75,9 @@ class UserController extends Controller
         } elseif ($array_request['user_type'] == 3) {
             Teacher::create($array_request);
         }
+
+        echo $this->msgAlert("Cadastrado com sucesso");
+
         return redirect(route('user.index'));
     }
 
@@ -75,8 +87,7 @@ class UserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function show($id)
+    public function show($id)
     {
         //
     }
@@ -87,8 +98,7 @@ class UserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function edit($id)
+    public function edit($id)
     {
         $user = User::find($id);
         $areas = Area::all();
@@ -109,8 +119,7 @@ class UserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function update(UserRequestUpdate $request, $id)
+    public function update(UserRequestUpdate $request, $id)
     {
         $array_request = $request->all();
 
@@ -126,6 +135,9 @@ class UserController extends Controller
         } elseif ($array_request['user_type'] == 3) {
             Teacher::where('user_id', '=', $id)->get()->last()->update($array_request);
         }
+
+        echo $this->msgAlert("Alterado com sucesso");
+
         return redirect(route('user.index'));
     }
 
@@ -135,8 +147,7 @@ class UserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public
-    function destroy($id)
+    public function destroy($id)
     {
         //
     }

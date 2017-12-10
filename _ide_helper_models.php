@@ -8,76 +8,15 @@
  */
 
 
-namespace App{
 /**
- * App\Area
+ * An Eloquent Model: 'Post'
  *
+ * @property integer $id
+ * @property integer $author_id
+ * @property string $title
+ * @property string $text
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \User $author
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Comment[] $comments
  */
-	class Area extends \Eloquent {}
-}
-
-namespace App{
-/**
- * App\Campus
- *
- */
-	class Campus extends \Eloquent {}
-}
-
-namespace App{
-/**
- * App\Company
- *
- */
-	class Company extends \Eloquent {}
-}
-
-namespace App{
-/**
- * App\Contract
- *
- */
-	class Contract extends \Eloquent {}
-}
-
-namespace App{
-/**
- * App\Coordinator
- *
- */
-	class Coordinator extends \Eloquent {}
-}
-
-namespace App{
-/**
- * App\Course
- *
- */
-	class Course extends \Eloquent {}
-}
-
-namespace App{
-/**
- * App\Student
- *
- */
-	class Student extends \Eloquent {}
-}
-
-namespace App{
-/**
- * App\Teacher
- *
- */
-	class Teacher extends \Eloquent {}
-}
-
-namespace App{
-/**
- * App\User
- *
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- */
-	class User extends \Eloquent {}
-}
-

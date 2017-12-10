@@ -5,6 +5,38 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Contract
+ *
+ * @property int $id
+ * @property string $dt_cad
+ * @property string|null $dt_term
+ * @property string $dt_prev_inic
+ * @property string $dt_prev_fim
+ * @property int $carga_horaria
+ * @property string|null $observacao
+ * @property int $student_id
+ * @property int $company_id
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property int $teacher_id
+ * @property-read \App\Company $company
+ * @property-read \App\Student $student
+ * @property-read \App\Teacher $teacher
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contract whereCargaHoraria($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contract whereCompanyId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contract whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contract whereDtCad($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contract whereDtPrevFim($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contract whereDtPrevInic($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contract whereDtTerm($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contract whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contract whereObservacao($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contract whereStudentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contract whereTeacherId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Contract whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Contract extends Model
 {
 

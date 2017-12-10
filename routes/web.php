@@ -17,9 +17,7 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return redirect(route("menu"));
 });
-
 Route::any('/logout', 'Auth\LoginController@logout')->name('logout');
-
 Route::get('/login', 'Auth\LoginController@loginPage')->name('login');
 Route::post('/login', 'Auth\LoginController@attempt');
 Route::get('/menu', 'MenuController@index')->name('menu')->middleware('auth');
@@ -30,7 +28,16 @@ Route::group(['middleware' => 'auth'], function(){
         Route::resource('company', 'CompanyController');
         Route::resource('contract', 'ContractController');
     });
+
     Route::group(['middleware' => '\App\Http\Middleware\StudentMiddleware', 'prefix'=>'student'], function(){
         Route::get('index', 'StuddentAcessoController@index')->name('student.index');
+    });
+
+    Route::group(['middleware' => '\App\Http\Middleware\TeacherMiddleware', 'prefix'=>'teacher'], function(){
+        Route::get('index', 'TeacherAcessoController@index')->name('teacher.index');
+    });
+
+    Route::group(['prefix', 'message'], function(){
+        Route::resource('message','MessageController');
     });
 });

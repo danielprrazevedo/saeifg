@@ -15,6 +15,8 @@ class MenuController extends Controller
             return view('admin.menu');
         elseif($user_type == 2)
             return redirect(route('student.index'));
+        elseif($user_type == 3)
+            return redirect(route('teacher.index'));
         else
             return "Aguarde, em construção";
 

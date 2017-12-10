@@ -15,6 +15,9 @@ class StudentMiddleware
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if ($request->user()->user_type != 2)
+            return redirect(route('menu'));
+        else
+            return $next($request);
     }
 }
